@@ -41,7 +41,7 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', -apple-system, sans-serif; }
-        body { background: var(--bg-site); color: var(--text-main); display: flex; flex-direction: column; min-height: 100vh; transition: 0.3s; }
+        body { background: var(--bg-site); color: var(--text-main); display: flex; flex-direction: column; min-height: 100vh; transition: 0.3s; overflow-x: hidden; }
 
         /* Navbar */
         header { background: var(--bg-panel); padding: 15px 5%; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.02); }
@@ -52,27 +52,27 @@
         .theme-btn { background: var(--border); border: none; font-size: 16px; padding: 8px 14px; border-radius: 20px; cursor: pointer; color: var(--text-main); transition: 0.2s;}
 
         /* Hero */
-        .hero { text-align: center; padding: 50px 20px 20px; }
+        .hero { text-align: center; padding: 40px 15px 20px; }
         .hero h1 { font-size: 38px; font-weight: 800; margin-bottom: 15px; color: var(--text-main); letter-spacing: -1px; }
         .hero p { font-size: 18px; color: var(--text-sub); max-width: 650px; margin: 0 auto; line-height: 1.6; }
 
         .container { display: flex; flex-wrap: wrap; max-width: 1200px; margin: 30px auto 60px; gap: 40px; padding: 0 20px; width: 100%; }
-        .controls, .preview-wrapper { flex: 1; min-width: 320px; }
+        .controls { flex: 1.2; min-width: 300px; }
+        .preview-wrapper { flex: 1; min-width: 300px; display: flex; flex-direction: column; align-items: center; position: sticky; top: 100px; height: fit-content; }
 
         /* Controls */
         .controls { background: var(--bg-panel); padding: 30px; border-radius: 16px; border: 1px solid var(--border); box-shadow: var(--shadow); }
         .section-title { font-size: 15px; font-weight: 700; color: var(--accent); margin: 25px 0 15px; padding-bottom: 8px; border-bottom: 2px solid var(--border); text-transform: uppercase; display: flex; align-items: center; gap: 8px; }
         .section-title:first-child { margin-top: 0; }
         
-        .form-group { margin-bottom: 18px; }
+        .form-group { margin-bottom: 18px; width: 100%; }
         label { display: block; font-size: 13.5px; font-weight: 600; margin-bottom: 6px; }
         input[type="text"], input[type="time"], select { width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 8px; background: var(--bg-site); color: var(--text-main); font-size: 14px; outline: none; transition: 0.2s;}
         input[type="text"]:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1); }
         input[type="file"] { width: 100%; padding: 10px; font-size: 13px; border: 1px dashed var(--text-sub); border-radius: 8px; cursor: pointer; background: var(--bg-site); color: var(--text-main); }
-        .row { display: flex; gap: 15px; flex-wrap: wrap; }
-        .row > div { flex: 1; min-width: 120px; }
+        .row { display: flex; gap: 15px; width: 100%; }
         
-        .check-group { display: flex; gap: 20px; background: var(--bg-site); padding: 15px; border-radius: 8px; border: 1px solid var(--border); margin-bottom: 15px; }
+        .check-group { display: flex; gap: 20px; background: var(--bg-site); padding: 15px; border-radius: 8px; border: 1px solid var(--border); margin-bottom: 15px; flex-wrap: wrap; }
         .check-item { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 500; cursor: pointer; }
         
         .btn-primary { width: 100%; background: var(--accent); color: white; border: none; padding: 16px; font-size: 16px; font-weight: 600; border-radius: 10px; cursor: pointer; margin-top: 20px; display: flex; justify-content: center; align-items: center; gap: 10px; box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3); transition: 0.2s;}
@@ -83,16 +83,15 @@
         #notif-2-section.active { display: block; }
 
         /* ULTRA REALISTIC iPHONE PREVIEW */
-        .preview-wrapper { display: flex; flex-direction: column; align-items: center; position: sticky; top: 100px; height: fit-content;}
-        
         .iphone-mockup { 
             width: 100%; max-width: 360px; aspect-ratio: 9/19.5; 
             background-color: #000; 
-            background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop'); /* Aesthetic Default Wallpaper */
+            background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop'); 
             background-size: cover; background-position: center; 
             border-radius: 45px; position: relative; overflow: hidden; 
             box-shadow: 0 25px 60px rgba(0,0,0,0.3); border: 8px solid #1f2937;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, sans-serif;
+            margin: 0 auto;
         }
 
         /* Top Status Bar */
@@ -100,14 +99,14 @@
         .i-icons { display: flex; gap: 6px; align-items: center; }
         .i-icons i { font-size: 12px; }
 
-        /* Lock Screen Time & Date (iOS 16/17 style) */
-        .i-lock-header { text-align: center; color: #fff; margin-top: 35px; text-shadow: 0 2px 15px rgba(0,0,0,0.2); }
-        .i-lock-icon { font-size: 22px; margin-bottom: 8px; }
+        /* Lock Screen Time & Date */
+        .i-lock-header { text-align: center; color: #fff; margin-top: 30px; text-shadow: 0 2px 15px rgba(0,0,0,0.2); }
+        .i-lock-icon { font-size: 20px; margin-bottom: 8px; }
         .i-date { font-size: 20px; font-weight: 500; letter-spacing: 0.5px; }
-        .i-time { font-size: 85px; font-weight: 800; line-height: 1; letter-spacing: -2px; font-family: -apple-system, sans-serif; }
+        .i-time { font-size: 80px; font-weight: 800; line-height: 1; letter-spacing: -2px; font-family: -apple-system, sans-serif; }
 
         /* Notification Area */
-        .i-notifications { position: absolute; bottom: 120px; left: 0; width: 100%; padding: 0 16px; display: flex; flex-direction: column; gap: 8px; }
+        .i-notifications { position: absolute; bottom: 110px; left: 0; width: 100%; padding: 0 16px; display: flex; flex-direction: column; gap: 8px; }
         
         /* Glassmorphism Notification Card */
         .i-notif-card { 
@@ -132,11 +131,11 @@
         .i-message { font-size: 14px; font-weight: 400; line-height: 1.3; opacity: 0.9; word-wrap: break-word;}
 
         /* Bottom Flashlight & Camera */
-        .i-bottom-actions { position: absolute; bottom: 40px; left: 0; width: 100%; display: flex; justify-content: space-between; padding: 0 40px; }
-        .i-action-btn { width: 50px; height: 50px; border-radius: 50%; background: rgba(0,0,0,0.4); backdrop-filter: blur(15px); display: flex; justify-content: center; align-items: center; color: white; font-size: 20px; }
+        .i-bottom-actions { position: absolute; bottom: 35px; left: 0; width: 100%; display: flex; justify-content: space-between; padding: 0 40px; }
+        .i-action-btn { width: 48px; height: 48px; border-radius: 50%; background: rgba(0,0,0,0.4); backdrop-filter: blur(15px); display: flex; justify-content: center; align-items: center; color: white; font-size: 20px; }
         .i-home-bar { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); width: 130px; height: 5px; background: #fff; border-radius: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.3);}
 
-        .watermark { position: absolute; bottom: 25px; width: 100%; text-align: center; font-size: 9px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 1px; font-weight:bold;}
+        .watermark { position: absolute; bottom: 22px; width: 100%; text-align: center; font-size: 9px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 1px; font-weight:bold;}
 
         /* Features Section */
         .features { max-width: 1200px; margin: 0 auto 60px; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
@@ -151,10 +150,36 @@
         footer p { font-size: 14px; color: var(--text-sub); margin-bottom: 15px; }
         .footer-bottom { padding-top: 15px; border-top: 1px solid var(--border); font-size: 13px; color: var(--text-sub); display: inline-block; min-width: 250px; }
 
+        /* === MOBILE RESPONSIVE CSS === */
         @media(max-width: 768px) { 
-            .container { flex-direction: column; padding: 0 15px; } 
+            /* Reverse layout on mobile: Show preview first, then controls */
+            .container { flex-direction: column-reverse; padding: 0 15px; gap: 20px; margin-top: 10px; } 
             .nav-links { display: none; }
-            .hero h1 { font-size: 30px; }
+            .hero { padding: 30px 15px 10px; }
+            .hero h1 { font-size: 28px; }
+            .hero p { font-size: 15px; }
+            
+            /* Unstick preview so it scrolls naturally on mobile */
+            .preview-wrapper { position: relative; top: 0; width: 100%; margin-bottom: 10px; }
+            
+            .controls { padding: 20px 15px; }
+            .row { flex-direction: column; gap: 0; } /* Stack input rows vertically */
+            
+            /* Responsive iPhone scaling to prevent horizontal cut-offs */
+            .iphone-mockup { max-width: 100%; border-width: 6px; border-radius: 40px; }
+            .i-time { font-size: 20cqw; } /* Container Query relative sizing */
+            .i-date { font-size: 5cqw; }
+            .i-status-bar { padding: 14px 20px 0; }
+            .i-bottom-actions { padding: 0 30px; bottom: 30px; }
+            .check-group { flex-direction: column; align-items: flex-start; gap: 12px; }
+        }
+
+        /* Container Query Setup for Mobile Text Scaling */
+        .preview-wrapper { container-type: inline-size; }
+
+        @media(max-width: 360px) {
+            .i-time { font-size: 65px; }
+            .i-date { font-size: 16px; }
         }
     </style>
 </head>
@@ -209,7 +234,8 @@
                 </div>
                 <div class="form-group">
                     <label>Big Lock Time</label>
-                    <input type="time" id="inp-big-time"> </div>
+                    <input type="time" id="inp-big-time"> 
+                </div>
             </div>
 
             <div class="section-title"><i class="fa-brands fa-whatsapp"></i> 2. Main Notification</div>
@@ -238,7 +264,7 @@
                 <input type="text" id="inp-message1" value="Are you ready for the new project? 🚀">
             </div>
 
-            <div class="check-group" style="margin-top:20px;">
+            <div class="check-group">
                 <label class="check-item">
                     <input type="checkbox" id="inp-dark-notif"> <i class="fa-solid fa-moon"></i> Dark Mode Notifications
                 </label>
@@ -279,9 +305,9 @@
         </div>
 
         <div class="preview-wrapper">
-            <div style="width: 100%; max-width: 360px; margin-bottom: 10px; font-weight: 700; color: var(--text-main); font-size: 16px;"><i class="fa-solid fa-eye"></i> Live iPhone Preview</div>
+            <div style="width: 100%; max-width: 360px; margin-bottom: 10px; font-weight: 700; color: var(--text-main); font-size: 16px; text-align: left;"><i class="fa-solid fa-eye"></i> Live iPhone Preview</div>
             
-            <div id="capture-area" class="iphone-mockup" id="prev-wallpaper">
+            <div id="capture-area" class="iphone-mockup">
                 
                 <div class="i-status-bar">
                     <span id="prev-carrier">Jio 5G</span>
